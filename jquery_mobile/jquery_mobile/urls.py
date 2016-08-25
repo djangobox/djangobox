@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.views.generic import RedirectView
+from myapp.views import list
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^list/$', list, name='list'),
+    url(r'^$', RedirectView.as_view(url='/list/', permanent=True)),
+
 ]
