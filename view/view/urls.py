@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from myapp.views import MyView
+from myapp.views import MyView,MyTemplateView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^mine/$', MyView.as_view(), name='my-view'),
+    url(r'^template/$', MyTemplateView.as_view(), name='my-templateview'),
 ]
 
